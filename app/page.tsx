@@ -108,11 +108,11 @@ export default function Home() {
             <Link href="/" className="flex items-center gap-2 group">
               {/* Mobile logo - icon only */}
               <div className="md:hidden">
-                <img src="/logo-icon.png" alt="MobiKudi" className="w-10 h-10" />
+                <img src="/Frame (1).png" alt="MobiKudi" className="w-10 h-10" />
               </div>
               {/* Desktop logo - full horizontal */}
               <div className="hidden md:block">
-                <img src="/logo-full.png" alt="MobiKudi" className="h-8" />
+                <img src="/Group 5.png" alt="MobiKudi" className="h-8" />
               </div>
             </Link>
 
@@ -630,7 +630,7 @@ export default function Home() {
             className="flex flex-col sm:flex-row justify-between items-center gap-6"
           >
             <div className="flex items-center gap-3">
-              <img src="/logo-icon.png" alt="MobiKudi" className="w-10 h-10" />
+              <img src="/Frame (1).png" alt="MobiKudi" className="w-10 h-10" />
               <span className="font-bold">MobiKudi</span>
             </div>
 
