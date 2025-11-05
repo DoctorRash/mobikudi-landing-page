@@ -48,6 +48,7 @@ const APP_SCREENS = [
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [currentScreenIndex, setCurrentScreenIndex] = useState(0)
+  const [loadedImages, setLoadedImages] = useState(new Set())
 
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
@@ -103,12 +104,16 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            {/* Logo */}
+           
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 bg-[#00B14F] rounded-lg flex items-center justify-center text-white font-bold text-lg">
-                M
+              {/* Mobile logo - icon only */}
+              <div className="md:hidden">
+                <img src="/logo-icon.png" alt="MobiKudi" className="w-10 h-10" />
               </div>
-              <span className="font-bold text-lg text-gray-900 hidden sm:inline">MobiKudi</span>
+              {/* Desktop logo - full horizontal */}
+              <div className="hidden md:block">
+                <img src="/logo-full.png" alt="MobiKudi" className="h-8" />
+              </div>
             </Link>
 
             {/* Desktop Menu */}
@@ -260,6 +265,9 @@ export default function Home() {
                     src={APP_SCREENS[currentScreenIndex].image || "/placeholder.svg"}
                     alt={APP_SCREENS[currentScreenIndex].title}
                     className="w-full h-full object-cover"
+                    loading={currentScreenIndex === 0 ? "eager" : "lazy"}
+                    fetchPriority={currentScreenIndex === 0 ? "high" : "low"}
+                    decoding="async"
                   />
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
@@ -622,7 +630,7 @@ export default function Home() {
             className="flex flex-col sm:flex-row justify-between items-center gap-6"
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-[#00B14F] rounded-lg flex items-center justify-center font-bold">M</div>
+              <img src="/logo-icon.png" alt="MobiKudi" className="w-10 h-10" />
               <span className="font-bold">MobiKudi</span>
             </div>
 
